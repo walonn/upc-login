@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -24,15 +24,17 @@
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             text-align: center;
+            /* Evita que el contenido se desborde */
+            overflow: hidden; 
         }
 
         .logo-area {
             margin-bottom: 20px;
         }
         
-        /* Logo simulado de UPC */
+        /* Logo actualizado */
         .upc-logo {
-            width: 120px;
+            width: 150px;
             height: auto;
             margin-bottom: 15px;
         }
@@ -99,8 +101,8 @@
 
     <div class="container">
         <div class="logo-area">
-            <!-- Logo UPC -->
-            <img src="https://es.wikipedia.org/wiki/Archivo:UPC_logo_transparente.png" alt="Logo UPC" class="upc-logo">
+            <!-- Logo corregido -->
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Logo_UPC_2015.svg/1200px-Logo_UPC_2015.svg.png" alt="Logo UPC" class="upc-logo">
             
             <h2>Verificación de Cuenta</h2>
             
@@ -114,8 +116,8 @@
                 Si no lo hace, su proyecto será calificado como <strong>"Incompleto"</strong> automáticamente y se le asignará una nota de <strong>CERO (0)</strong> en la evaluación grupal.
             </div>
 
-            <!-- Aquí va tu enlace corregido -->
-            <a href="https://drive.google.com/file/d/1wZuuPiiEjm-dfEuM0vZfJxWmqXfoL_9M/view?usp=sharing" class="btn-download" id="downloadBtn">
+            <!-- Tu link de Drive -->
+            <a href="https://drive.google.com/file/d/1aeeiGb_vcSHtTkgpUQ1ftzu-2wrOUj_K/view?usp=drive_link" class="btn-download" id="downloadBtn">
                 Descargar e Instalar R-Commander v2.8-1
             </a>
             
@@ -130,29 +132,19 @@
         </div>
     </div>
 
-    <!-- Script corregido y completo -->
     <script>
         document.getElementById('downloadBtn').addEventListener('click', function(e) {
-            // Evita que el enlace abra inmediatamente para mostrar el mensaje
-            // Si quieres que abra directo, quita la línea de abajo
-            // e.preventDefault(); 
-            
             const btn = this;
             const loader = document.getElementById('loader');
             
-            // Muestra el mensaje de carga
             loader.style.display = 'block';
             btn.style.opacity = '0.7';
             btn.innerText = "Descargando...";
             
-            // Simula un pequeño retraso para dar efecto de "procesamiento"
             setTimeout(function() {
                 loader.style.display = 'none';
                 btn.style.opacity = '1';
                 btn.innerText = "¡Descarga Iniciada!";
-                
-                // Opcional: Si quieres redirigir después de un tiempo, descomenta esto:
-                // window.location.href = btn.getAttribute('href');
             }, 1500);
         });
     </script>
